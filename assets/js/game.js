@@ -1,39 +1,42 @@
-// Question 1 info stored into an object
+// Global
+const acceptingAnswers = true;
+
+// Question info stored into an object
 const questionInfo = [
     { question: "Commonly used data types DO NOT include:",
     answers: [
-        {text: "Strings", correct: false, feedback: "Wrong!"},
-        {text: "Booleans", correct: false, feedback: "Wrong!"},
-        {text: "Alerts", correct: true, feedback: "Correct!"},
-        {text: "Numbers", correct: false, feedback: "Wrong!"}
+        {text: "Strings", correct: false},
+        {text: "Booleans", correct: false},
+        {text: "Alerts", correct: true},
+        {text: "Numbers", correct: false}
     ]},
     { question: "The condition if an if/else statement is enclosed with _____.",
     answers: [
-        {text: "Quotes", correct: false, feedback: "Wrong!"},
-        {text: "Curly Brackets", correct: false, feedback: "Wrong!"},
-        {text: "Parenthesis", correct: true, feedback: "Correct!"},
-        {text: "Square Brackets", correct: false, feedback: "Wrong!"}
+        {text: "Quotes", correct: false},
+        {text: "Curly Brackets", correct: false},
+        {text: "Parenthesis", correct: true},
+        {text: "Square Brackets", correct: false}
     ]},
     { question: "Arrays in JavaScript can be used to store _____.",
     answers: [
-        {text: "Numbers & Strings", correct: false, feedback: "Wrong!"},
-        {text: "Other Arrays", correct: false, feedback: "Wrong!"},
-        {text: "Booleans", correct: false, feedback: "Wrong!"},
-        {text: "All Of The Above", correct: true, feedback: "Correct!"}
+        {text: "Numbers & Strings", correct: false},
+        {text: "Other Arrays", correct: false},
+        {text: "Booleans", correct: false},
+        {text: "All Of The Above", correct: true}
     ]},
     { question: "String values must be enclosed within _____ when being assigned to variables.",
     answers: [
-        {text: "Commas", correct: false, feedback: "Wrong!"},
-        {text: "Curly Brackets", correct: false, feedback: "Wrong!"},
-        {text: "Quotes", correct: true, feedback: "Correct!"},
-        {text: "Parenthesis", correct: false, feedback: "Wrong!"}
+        {text: "Commas", correct: false},
+        {text: "Curly Brackets", correct: false},
+        {text: "Quotes", correct: true},
+        {text: "Parenthesis", correct: false}
     ]},
     { question: "A very useful tool used during development and debugging for printing content to the debugger is:",
     answers: [
-        {text: "JavaScript", correct: false, feedback: "Wrong!"},
-        {text: "Bash", correct: false, feedback: "Wrong!"},
-        {text: "For Loops", correct: false, feedback: "Wrong!"},
-        {text: "console.log", correct: true, feedback: "Correct!"}
+        {text: "JavaScript", correct: false},
+        {text: "Bash", correct: false},
+        {text: "For Loops", correct: false},
+        {text: "console.log", correct: true}
     ]},
 
 ]
@@ -62,6 +65,11 @@ const app = {
 
             countdownEl.innerHTML = `${minutes}: ${seconds}`;
             time--;
+
+            if (time <= 0){
+                countdownEl.innerHTML = "GAME OVER"
+                app.gameOver()
+            }
         }
 
         setInterval(updateCountdown, 1000);
@@ -75,7 +83,6 @@ const app = {
         let answer2 = document.getElementById("answer2");
         let answer3 = document.getElementById("answer3");
         let answer4 = document.getElementById("answer4");
-        let feedback = document.getElementById("feedback");
 
         // // Display data from object for question 1
         question.innerHTML = questionInfo[0].question;
@@ -83,15 +90,12 @@ const app = {
         answer2.innerHTML = questionInfo[0].answers[1].text;
         answer3.innerHTML = questionInfo[0].answers[2].text;
         answer4.innerHTML = questionInfo[0].answers[3].text;
-        answer1Feed = questionInfo[0].answers[0].feedback;
-        feedback.innerHTML = answer1Feed;
-
 
         // Add event listeners to start answer verification
-        answer1.addEventListener("click", app.answerVerify);
-        answer2.addEventListener("click", app.answerVerify);
-        answer3.addEventListener("click", app.answerVerify);
-        answer4.addEventListener("click", app.answerVerify);
+        answer1.addEventListener("click", function(){console.log("Hello");});
+        answer2.addEventListener("click", function(){console.log("Hello");});
+        answer3.addEventListener("click", function(){console.log("Hello");});
+        answer4.addEventListener("click", function(){console.log("Hello");});
     },
 
     round2: () => {
@@ -109,20 +113,9 @@ const app = {
     round5: () => {
 
     },
-
-    answerVerify: (e) => {
-
-        // Test
-        const selectedAnswer = e.target;
-        console.log(`${selectedAnswer}`);
-
-        // Variables for html
-        let feedback = document.getElementById("feedback");
-        
-    },
     
-    store: () => {
-
+    gameOver: () => {
+        console.log("GAME OVER");
     }
 }
 

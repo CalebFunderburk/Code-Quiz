@@ -38,39 +38,31 @@ const questionInfo = [
 
 ]
 
+// Countdown variables
+const countdownEl = document.getElementById("countdown");
+const startingSeconds = 1.25;
+let time = startingSeconds * 60;
+
+// Countdown function
+let countdown = () => {
+    // Coundown logic
+    let updateCountdown = () => {
+        let seconds = time;
+
+        countdownEl.innerHTML = `${seconds}`;
+        time--;
+
+        if (time <= 0){
+            countdownEl.innerHTML = "GAME OVER"
+            app.gameOver()
+        }
+    }
+
+    setInterval(updateCountdown, 1000);
+}
+
 // Quiz 
 const app = {
-
-    game: () => {
-
-        app.countdown();
-        app.round1();
-
-    },
-
-    countdown: () => {
-
-        // Variables for countdown
-        const countdownEl = document.getElementById("countdown");
-        const startingMinutes = 1.25;
-        let time = startingMinutes * 60;
-
-        // Coundown logic
-        let updateCountdown = () => {
-            const minutes = Math.floor(time / 60);
-            let seconds = time % 60;
-
-            countdownEl.innerHTML = `${minutes}: ${seconds}`;
-            time--;
-
-            if (time <= 0){
-                countdownEl.innerHTML = "GAME OVER"
-                app.gameOver()
-            }
-        }
-
-        setInterval(updateCountdown, 1000);
-    },
 
     round1: () => {
 
@@ -106,12 +98,16 @@ const app = {
         answer1.addEventListener("click", () => {
             if(answer1Sol === false){
                 feedback.innerHTML = "Wrong!";
+                let newTime = time - 10;
+                countdownEl.innerHTML = `${newTime}`;
                 app.round2();
             }
         });
         answer2.addEventListener("click", () => {
             if(answer2Sol === false){
                 feedback.innerHTML = "Wrong!";
+                let newTime = time - 10;
+                countdownEl.innerHTML = `${newTime}`;
                 app.round2();
             }
         });
@@ -124,6 +120,8 @@ const app = {
         answer4.addEventListener("click", () => {
             if(answer4Sol === false){
                 feedback.innerHTML = "Wrong!";
+                let newTime = time - 10;
+                countdownEl.innerHTML = `${newTime}`;
                 app.round2();
             }
         });
@@ -150,4 +148,5 @@ const app = {
     }
 }
 
-app.game();
+app.round1();
+countdown();

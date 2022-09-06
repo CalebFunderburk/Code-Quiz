@@ -1,6 +1,3 @@
-// Global
-const acceptingAnswers = true;
-
 // Question info stored into an object
 const questionInfo = [
     { question: "Commonly used data types DO NOT include:",
@@ -78,28 +75,62 @@ const app = {
     round1: () => {
 
         // // Variables for html
-        let question = document.getElementById("question");
-        let answer1 = document.getElementById("answer1");
-        let answer2 = document.getElementById("answer2");
-        let answer3 = document.getElementById("answer3");
-        let answer4 = document.getElementById("answer4");
+        const question = document.getElementById("question");
+        const answer1 = document.getElementById("answer1");
+        const answer2 = document.getElementById("answer2");
+        const answer3 = document.getElementById("answer3");
+        const answer4 = document.getElementById("answer4");
+        const feedback = document.getElementById("feedback")
+
+        // Question & answer data
+        let questionData = questionInfo[0].question;
+        let answer1Data = questionInfo[0].answers[0].text;
+        let answer2Data = questionInfo[0].answers[1].text;
+        let answer3Data = questionInfo[0].answers[2].text;
+        let answer4Data = questionInfo[0].answers[3].text;
+
+        // Solution data
+        const answer1Sol = questionInfo[0].answers[0].correct;
+        const answer2Sol =  questionInfo[0].answers[1].correct;
+        const answer3Sol =  questionInfo[0].answers[2].correct;
+        const answer4Sol =  questionInfo[0].answers[3].correct;
 
         // // Display data from object for question 1
-        question.innerHTML = questionInfo[0].question;
-        answer1.innerHTML = questionInfo[0].answers[0].text;
-        answer2.innerHTML = questionInfo[0].answers[1].text;
-        answer3.innerHTML = questionInfo[0].answers[2].text;
-        answer4.innerHTML = questionInfo[0].answers[3].text;
+        question.innerHTML = questionData;
+        answer1.innerHTML = answer1Data;
+        answer2.innerHTML = answer2Data;
+        answer3.innerHTML = answer3Data;
+        answer4.innerHTML = answer4Data;
 
         // Add event listeners to start answer verification
-        answer1.addEventListener("click", function(){console.log("Hello");});
-        answer2.addEventListener("click", function(){console.log("Hello");});
-        answer3.addEventListener("click", function(){console.log("Hello");});
-        answer4.addEventListener("click", function(){console.log("Hello");});
+        answer1.addEventListener("click", () => {
+            if(answer1Sol === false){
+                feedback.innerHTML = "Wrong!";
+                app.round2();
+            }
+        });
+        answer2.addEventListener("click", () => {
+            if(answer2Sol === false){
+                feedback.innerHTML = "Wrong!";
+                app.round2();
+            }
+        });
+        answer3.addEventListener("click", () => {
+            if(answer3Sol === true){
+                feedback.innerHTML = "Correct!";
+                app.round2();
+            }
+        });
+        answer4.addEventListener("click", () => {
+            if(answer4Sol === false){
+                feedback.innerHTML = "Wrong!";
+                app.round2();
+            }
+        });
     },
 
     round2: () => {
-
+        console.log("ding ding ding!")
     },
     
     round3: () => {
@@ -115,7 +146,7 @@ const app = {
     },
     
     gameOver: () => {
-        console.log("GAME OVER");
+        
     }
 }
 

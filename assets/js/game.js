@@ -242,16 +242,16 @@ const app = {
             }
         });
         answer3.addEventListener("click", e => {
-            if(answer3Sol === true){
-                feedback.innerHTML = "Correct!";
+            if(answer3Sol === false){
+                feedback.innerHTML = "Wrong!";
+                let newTime = time - 10;
+                countdownEl.innerHTML = `${newTime}`;
                 app.round4();
             }
         });
         answer4.addEventListener("click", e => {
-            if(answer4Sol === false){
-                feedback.innerHTML = "Wrong!";
-                let newTime = time - 10;
-                countdownEl.innerHTML = `${newTime}`;
+            if(answer4Sol === true){
+                feedback.innerHTML = "Correct!";
                 app.round4();
             }
         });
@@ -371,16 +371,16 @@ const app = {
             }
         });
         answer3.addEventListener("click", e => {
-            if(answer3Sol === true){
-                feedback.innerHTML = "Correct!";
+            if(answer3Sol === false){
+                feedback.innerHTML = "Wrong!";
+                let newTime = time - 10;
+                countdownEl.innerHTML = `${newTime}`;
                 app.gameOver();
             }
         });
         answer4.addEventListener("click", e => {
-            if(answer4Sol === false){
-                feedback.innerHTML = "Wrong!";
-                let newTime = time - 10;
-                countdownEl.innerHTML = `${newTime}`;
+            if(answer4Sol === true){
+                feedback.innerHTML = "Correct!";
                 app.gameOver();
             }
         });
@@ -388,6 +388,26 @@ const app = {
     
     gameOver: () => {
         console.log("GAME OVER");
+
+        // Remove html elements
+        const quizEl = document.getElementById("quiz-div");
+        quizEl.parentNode.removeChild(quizEl);
+
+        // Add new html to the page
+        const gameOverEl = document.getElementById("game-over");
+        const h2El = document.getElementById("header")
+        const p1El = document.getElementById("p1");
+        const p2El = document.getElementById("p2");
+;        
+        h2El.innerHTML = "GAME OVER";
+        p1El.innerHTML = "Your final score is";
+        p2El.innerHTML = "Enter your initials: ";
+
+        gameOverEl.className = "text-center";
+
+        const inputEl = document.createElement("input");
+        
+
     }
 }
 

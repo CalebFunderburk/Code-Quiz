@@ -65,8 +65,9 @@ let countdown = () => {
 const app = {
 
     round1: () => {
-        console.log("Round 1")
-        // // Variables for html
+        console.log("Round 1");
+
+        // Variables for html
         let question = document.getElementById("question");
         let answer1 = document.getElementById("answer1");
         let answer2 = document.getElementById("answer2");
@@ -87,7 +88,7 @@ const app = {
         let answer3Sol =  questionInfo[0].answers[2].correct;
         let answer4Sol =  questionInfo[0].answers[3].correct;
 
-        // // Display data from object for question 1
+        // Display data from object for question 1
         question.innerHTML = questionData;
         answer1.innerHTML = answer1Data;
         answer2.innerHTML = answer2Data;
@@ -95,15 +96,16 @@ const app = {
         answer4.innerHTML = answer4Data;
 
         // Add event listeners to start answer verification
-        answer1.addEventListener("click", () => {
+        answer1.addEventListener("click", e => {
             if(answer1Sol === false){
                 feedback.innerHTML = "Wrong!";
                 let newTime = time - 10;
                 countdownEl.innerHTML = `${newTime}`;
                 app.round2();
+
             }
         });
-        answer2.addEventListener("click", () => {
+        answer2.addEventListener("click", e => {
             if(answer2Sol === false){
                 feedback.innerHTML = "Wrong!";
                 let newTime = time - 10;
@@ -111,13 +113,13 @@ const app = {
                 app.round2();
             }
         });
-        answer3.addEventListener("click", () => {
+        answer3.addEventListener("click", e => {
             if(answer3Sol === true){
                 feedback.innerHTML = "Correct!";
                 app.round2();
             }
         });
-        answer4.addEventListener("click", () => {
+        answer4.addEventListener("click", e => {
             if(answer4Sol === false){
                 feedback.innerHTML = "Wrong!";
                 let newTime = time - 10;
@@ -128,9 +130,9 @@ const app = {
     },
 
     round2: () => {
-        console.log("Round 2")
+        console.log("Round 2");
         
-        // // Variables for html
+        // Variables for html
         let question = document.getElementById("question");
         let answer1 = document.getElementById("answer1");
         let answer2 = document.getElementById("answer2");
@@ -147,11 +149,11 @@ const app = {
 
         // Solution data
         let answer1Sol = questionInfo[1].answers[0].correct;
-        let answer2Sol =  questionInfo[2].answers[1].correct;
-        let answer3Sol =  questionInfo[3].answers[2].correct;
-        let answer4Sol =  questionInfo[4].answers[3].correct;
+        let answer2Sol =  questionInfo[1].answers[1].correct;
+        let answer3Sol =  questionInfo[1].answers[2].correct;
+        let answer4Sol =  questionInfo[1].answers[3].correct;
 
-        // // Display data from object for question 1
+        // Display data from object for question 1
         question.innerHTML = questionData;
         answer1.innerHTML = answer1Data;
         answer2.innerHTML = answer2Data;
@@ -159,7 +161,7 @@ const app = {
         answer4.innerHTML = answer4Data;
 
         // Add event listeners to start answer verification
-        answer1.addEventListener("click", () => {
+        answer1.addEventListener("click", e => {
             if(answer1Sol === false){
                 feedback.innerHTML = "Wrong!";
                 let newTime = time - 10;
@@ -167,7 +169,7 @@ const app = {
                 app.round3();
             }
         });
-        answer2.addEventListener("click", () => {
+        answer2.addEventListener("click", e => {
             if(answer2Sol === false){
                 feedback.innerHTML = "Wrong!";
                 let newTime = time - 10;
@@ -175,13 +177,13 @@ const app = {
                 app.round3();
             }
         });
-        answer3.addEventListener("click", () => {
+        answer3.addEventListener("click", e => {
             if(answer3Sol === true){
                 feedback.innerHTML = "Correct!";
                 app.round3();
             }
         });
-        answer4.addEventListener("click", () => {
+        answer4.addEventListener("click", e => {
             if(answer4Sol === false){
                 feedback.innerHTML = "Wrong!";
                 let newTime = time - 10;
@@ -192,19 +194,200 @@ const app = {
     },
     
     round3: () => {
-        console.log("Round 3")
+        console.log("Round 3");
+
+        // Variables for html
+        let question = document.getElementById("question");
+        let answer1 = document.getElementById("answer1");
+        let answer2 = document.getElementById("answer2");
+        let answer3 = document.getElementById("answer3");
+        let answer4 = document.getElementById("answer4");
+        let feedback = document.getElementById("feedback")
+
+        // Question & answer data
+        let questionData = questionInfo[2].question;
+        let answer1Data = questionInfo[2].answers[0].text;
+        let answer2Data = questionInfo[2].answers[1].text;
+        let answer3Data = questionInfo[2].answers[2].text;
+        let answer4Data = questionInfo[2].answers[3].text;
+
+        // Solution data
+        let answer1Sol = questionInfo[2].answers[0].correct;
+        let answer2Sol =  questionInfo[2].answers[1].correct;
+        let answer3Sol =  questionInfo[2].answers[2].correct;
+        let answer4Sol =  questionInfo[2].answers[3].correct;
+
+        // Display data from object for question 1
+        question.innerHTML = questionData;
+        answer1.innerHTML = answer1Data;
+        answer2.innerHTML = answer2Data;
+        answer3.innerHTML = answer3Data;
+        answer4.innerHTML = answer4Data;
+
+        // Add event listeners to start answer verification
+        answer1.addEventListener("click", e => {
+            if(answer1Sol === false){
+                feedback.innerHTML = "Wrong!";
+                let newTime = time - 10;
+                countdownEl.innerHTML = `${newTime}`;
+                app.round4();
+            }
+        });
+        answer2.addEventListener("click", e => {
+            if(answer2Sol === false){
+                feedback.innerHTML = "Wrong!";
+                let newTime = time - 10;
+                countdownEl.innerHTML = `${newTime}`;
+                app.round4();
+            }
+        });
+        answer3.addEventListener("click", e => {
+            if(answer3Sol === true){
+                feedback.innerHTML = "Correct!";
+                app.round4();
+            }
+        });
+        answer4.addEventListener("click", e => {
+            if(answer4Sol === false){
+                feedback.innerHTML = "Wrong!";
+                let newTime = time - 10;
+                countdownEl.innerHTML = `${newTime}`;
+                app.round4();
+            }
+        });
     },
     
     round4: () => {
-        console.log("Round 4")
+        console.log("Round 4");
+
+        // Variables for html
+        let question = document.getElementById("question");
+        let answer1 = document.getElementById("answer1");
+        let answer2 = document.getElementById("answer2");
+        let answer3 = document.getElementById("answer3");
+        let answer4 = document.getElementById("answer4");
+        let feedback = document.getElementById("feedback")
+
+        // Question & answer data
+        let questionData = questionInfo[3].question;
+        let answer1Data = questionInfo[3].answers[0].text;
+        let answer2Data = questionInfo[3].answers[1].text;
+        let answer3Data = questionInfo[3].answers[2].text;
+        let answer4Data = questionInfo[3].answers[3].text;
+
+        // Solution data
+        let answer1Sol = questionInfo[3].answers[0].correct;
+        let answer2Sol =  questionInfo[3].answers[1].correct;
+        let answer3Sol =  questionInfo[3].answers[2].correct;
+        let answer4Sol =  questionInfo[3].answers[3].correct;
+
+        // Display data from object for question 1
+        question.innerHTML = questionData;
+        answer1.innerHTML = answer1Data;
+        answer2.innerHTML = answer2Data;
+        answer3.innerHTML = answer3Data;
+        answer4.innerHTML = answer4Data;
+
+        // Add event listeners to start answer verification
+        answer1.addEventListener("click", e => {
+            if(answer1Sol === false){
+                feedback.innerHTML = "Wrong!";
+                let newTime = time - 10;
+                countdownEl.innerHTML = `${newTime}`;
+                app.round5();
+
+            }
+        });
+        answer2.addEventListener("click", e => {
+            if(answer2Sol === false){
+                feedback.innerHTML = "Wrong!";
+                let newTime = time - 10;
+                countdownEl.innerHTML = `${newTime}`;
+                app.round5();
+            }
+        });
+        answer3.addEventListener("click", e => {
+            if(answer3Sol === true){
+                feedback.innerHTML = "Correct!";
+                app.round5();
+            }
+        });
+        answer4.addEventListener("click", e => {
+            if(answer4Sol === false){
+                feedback.innerHTML = "Wrong!";
+                let newTime = time - 10;
+                countdownEl.innerHTML = `${newTime}`;
+                app.round5();
+            }
+        });
     },
     
     round5: () => {
-        console.log("Round 5")
+        console.log("Round 5");
+
+        // Variables for html
+        let question = document.getElementById("question");
+        let answer1 = document.getElementById("answer1");
+        let answer2 = document.getElementById("answer2");
+        let answer3 = document.getElementById("answer3");
+        let answer4 = document.getElementById("answer4");
+        let feedback = document.getElementById("feedback")
+
+        // Question & answer data
+        let questionData = questionInfo[4].question;
+        let answer1Data = questionInfo[4].answers[0].text;
+        let answer2Data = questionInfo[4].answers[1].text;
+        let answer3Data = questionInfo[4].answers[2].text;
+        let answer4Data = questionInfo[4].answers[3].text;
+
+        // Solution data
+        let answer1Sol = questionInfo[4].answers[0].correct;
+        let answer2Sol =  questionInfo[4].answers[1].correct;
+        let answer3Sol =  questionInfo[4].answers[2].correct;
+        let answer4Sol =  questionInfo[4].answers[3].correct;
+
+        // Display data from object for question 1
+        question.innerHTML = questionData;
+        answer1.innerHTML = answer1Data;
+        answer2.innerHTML = answer2Data;
+        answer3.innerHTML = answer3Data;
+        answer4.innerHTML = answer4Data;
+
+        // Add event listeners to start answer verification
+        answer1.addEventListener("click", e => {
+            if(answer1Sol === false){
+                feedback.innerHTML = "Wrong!";
+                let newTime = time - 10;
+                countdownEl.innerHTML = `${newTime}`;
+                app.gameOver();
+            }
+        });
+        answer2.addEventListener("click", e => {
+            if(answer2Sol === false){
+                feedback.innerHTML = "Wrong!";
+                let newTime = time - 10;
+                countdownEl.innerHTML = `${newTime}`;
+                app.gameOver();
+            }
+        });
+        answer3.addEventListener("click", e => {
+            if(answer3Sol === true){
+                feedback.innerHTML = "Correct!";
+                app.gameOver();
+            }
+        });
+        answer4.addEventListener("click", e => {
+            if(answer4Sol === false){
+                feedback.innerHTML = "Wrong!";
+                let newTime = time - 10;
+                countdownEl.innerHTML = `${newTime}`;
+                app.gameOver();
+            }
+        });
     },
     
     gameOver: () => {
-        console.log("GAME OVER")
+        console.log("GAME OVER");
     }
 }
 

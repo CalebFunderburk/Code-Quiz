@@ -52,13 +52,14 @@ let countdown = () => {
         countdownEl.innerHTML = `${seconds}`;
         time--;
 
-        if (time <= 0){
+        if (time === 0){
+            clearInterval(timer)
             countdownEl.innerHTML = "GAME OVER"
             app.gameOver()
-        }
+        } 
     }
 
-    setInterval(updateCountdown, 1000);
+    let timer = setInterval(updateCountdown, 1000);
 }
 
 // Quiz 
@@ -405,8 +406,24 @@ const app = {
 
         gameOverEl.className = "text-center";
 
+        const inputDiv = document.getElementById("input-div");
         const inputEl = document.createElement("input");
-        
+        inputDiv.appendChild(inputEl);
+
+        const btnDiv = document.getElementById("btn-div")
+        const btnEl = document.createElement("button")
+        btnDiv.appendChild(btnEl);
+        btnEl.className = "btn btn-primary my-2"
+        btnEl.innerHTML = "Save"
+        btnDiv.addEventListener("click", e => { 
+            let userSave = {
+                initials: `${inputEl.value}`
+            }
+
+            localStorage.setItem("Personal Score", JSON.stringify(userSave));
+
+            
+        })
 
     }
 }

@@ -40,7 +40,7 @@ const questionInfo = [
 
 // Countdown variables
 const countdownEl = document.getElementById("countdown");
-const startingSeconds = 1.25;
+const startingSeconds = .05;
 let time = startingSeconds * 60;
  
 // Coundown logic
@@ -412,8 +412,8 @@ let gameOver = () => {
     
     // Diplay this data
     h2El.innerHTML = "GAME OVER";
-    p1El.innerHTML = `Your final score is: ${time + 1}`;
-    let userScore = `${time + 1}`
+    p1El.innerHTML = `Your final score is: ${time}`;
+    let userScore = `${time}`
     p2El.innerHTML = "Enter your initials: ";
 
     gameOverEl.className = "text-center";

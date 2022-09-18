@@ -395,7 +395,8 @@ let gameOver = () => {
     const p2El = document.getElementById("p2");
     
     h2El.innerHTML = "GAME OVER";
-    p1El.innerHTML = "Your final score is";
+    p1El.innerHTML = `Your final score is: ${time + 1}`;
+    let userScore = `${time + 1}`
     p2El.innerHTML = "Enter your initials: ";
 
     gameOverEl.className = "text-center";
@@ -411,7 +412,8 @@ let gameOver = () => {
     btnEl.innerHTML = "Save"
     btnDiv.addEventListener("click", e => { 
         let userSave = {
-            initials: `${inputEl.value}`
+            initials: `${inputEl.value}`,
+            score: userScore
         }
         localStorage.setItem("Personal Score", JSON.stringify(userSave));  
     })

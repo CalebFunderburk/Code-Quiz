@@ -48,13 +48,13 @@ let updateCountdown = () => {
     countdownEl.innerHTML = `Time: ${time}`;
     time--;
     if (time == 0 || time <= 0){
-        if (time <= 0){
-            clearInterval(updateCountdown)
-            countdownEl.innerHTML = "GAME OVER"
-            gameOver()
-        }
+            clearInterval(timer);
+            countdownEl.innerHTML = "GAME OVER";
+            gameOver();
     }
 }
+
+let timer = setInterval(updateCountdown, 1000);
 
 let round1 = () => {
     console.log("Round 1");
@@ -65,7 +65,7 @@ let round1 = () => {
     let answer2 = document.getElementById("answer2");
     let answer3 = document.getElementById("answer3");
     let answer4 = document.getElementById("answer4");
-    let feedback = document.getElementById("feedback")
+    let feedback = document.getElementById("feedback");
 
     // Question & answer data
     let questionData = questionInfo[0].question;
@@ -91,16 +91,16 @@ let round1 = () => {
     answer1.addEventListener("click", e => {
         if(answer1Sol === false){
             feedback.innerHTML = "Wrong!";
-            let newTime = time - 10;
-            countdownEl.innerHTML = `${newTime}`;
+            // let newTime = time - 10;
+            // countdownEl.innerHTML = `${newTime}`;
             round2();
         }
     });
     answer2.addEventListener("click", e => {
         if(answer2Sol === false){
             feedback.innerHTML = "Wrong!";
-            let newTime = time - 10;
-            countdownEl.innerHTML = `${newTime}`;
+            // let newTime = time - 10;
+            // countdownEl.innerHTML = `${newTime}`;
             round2();
         }
     });
@@ -113,8 +113,8 @@ let round1 = () => {
     answer4.addEventListener("click", e => {
         if(answer4Sol === false){
             feedback.innerHTML = "Wrong!";
-            let newTime = time - 10;
-            countdownEl.innerHTML = `${newTime}`;
+            // let newTime = time - 10;
+            // countdownEl.innerHTML = `${newTime}`;
             round2();
         }
     });
@@ -155,16 +155,16 @@ let round2 = () => {
     answer1.addEventListener("click", e => {
         if(answer1Sol === false){
             feedback.innerHTML = "Wrong!";
-            let newTime = time - 10;
-            countdownEl.innerHTML = `${newTime}`;
+            // let newTime = time - 10;
+            // countdownEl.innerHTML = `${newTime}`;
             round3();
         }
     });
     answer2.addEventListener("click", e => {
         if(answer2Sol === false){
             feedback.innerHTML = "Wrong!";
-            let newTime = time - 10;
-            countdownEl.innerHTML = `${newTime}`;
+            // let newTime = time - 10;
+            // countdownEl.innerHTML = `${newTime}`;
             round3();
         }
     });
@@ -177,8 +177,8 @@ let round2 = () => {
     answer4.addEventListener("click", e => {
         if(answer4Sol === false){
             feedback.innerHTML = "Wrong!";
-            let newTime = time - 10;
-            countdownEl.innerHTML = `${newTime}`;
+            // let newTime = time - 10;
+            // countdownEl.innerHTML = `${newTime}`;
             round3();
         }
     });
@@ -219,24 +219,24 @@ let round3 =  () => {
     answer1.addEventListener("click", e => {
         if(answer1Sol === false){
             feedback.innerHTML = "Wrong!";
-            let newTime = time - 10;
-            countdownEl.innerHTML = `${newTime}`;
+            // let newTime = time - 10;
+            // countdownEl.innerHTML = `${newTime}`;
             round4();
         }
     });
     answer2.addEventListener("click", e => {
         if(answer2Sol === false){
             feedback.innerHTML = "Wrong!";
-            let newTime = time - 10;
-            countdownEl.innerHTML = `${newTime}`;
+            // let newTime = time - 10;
+            // countdownEl.innerHTML = `${newTime}`;
             round4();
         }
     });
     answer3.addEventListener("click", e => {
         if(answer3Sol === false){
             feedback.innerHTML = "Wrong!";
-            let newTime = time - 10;
-            countdownEl.innerHTML = `${newTime}`;
+            // let newTime = time - 10;
+            // countdownEl.innerHTML = `${newTime}`;
             round4();
         }
     });
@@ -283,8 +283,8 @@ let round4 = () => {
     answer1.addEventListener("click", e => {
         if(answer1Sol === false){
             feedback.innerHTML = "Wrong!";
-            let newTime = time - 10;
-            countdownEl.innerHTML = `${newTime}`;
+            // let newTime = time - 10;
+            // countdownEl.innerHTML = `${newTime}`;
             round5();
 
         }
@@ -292,8 +292,8 @@ let round4 = () => {
     answer2.addEventListener("click", e => {
         if(answer2Sol === false){
             feedback.innerHTML = "Wrong!";
-            let newTime = time - 10;
-            countdownEl.innerHTML = `${newTime}`;
+            // let newTime = time - 10;
+            // countdownEl.innerHTML = `${newTime}`;
             round5();
         }
     });
@@ -306,8 +306,8 @@ let round4 = () => {
     answer4.addEventListener("click", e => {
         if(answer4Sol === false){
             feedback.innerHTML = "Wrong!";
-            let newTime = time - 10;
-            countdownEl.innerHTML = `${newTime}`;
+            // let newTime = time - 10;
+            // countdownEl.innerHTML = `${newTime}`;
             round5();
         }
     });
@@ -348,40 +348,45 @@ let round5 = () => {
     answer1.addEventListener("click", e => {
         if(answer1Sol === false){
             feedback.innerHTML = "Wrong!";
-            let newTime = time - 10;
-            countdownEl.innerHTML = `${newTime}`;
+            // let newTime = time - 10;
+            // countdownEl.innerHTML = `${newTime}`;
+            clearInterval(timer);
             gameOver();
         }
     });
     answer2.addEventListener("click", e => {
         if(answer2Sol === false){
             feedback.innerHTML = "Wrong!";
-            let newTime = time - 10;
-            countdownEl.innerHTML = `${newTime}`;
+            // let newTime = time - 10;
+            // countdownEl.innerHTML = `${newTime}`;
+            clearInterval(timer);
             gameOver();
         }
     });
     answer3.addEventListener("click", e => {
         if(answer3Sol === false){
             feedback.innerHTML = "Wrong!";
-            let newTime = time - 10;
-            countdownEl.innerHTML = `${newTime}`;
+            // let newTime = time - 10;
+            // countdownEl.innerHTML = `${newTime}`;
+            clearInterval(timer);
             gameOver();
         }
     });
     answer4.addEventListener("click", e => {
         if(answer4Sol === true){
             feedback.innerHTML = "Correct!";
+            clearInterval(timer);
             gameOver();
         }
     });
 }
 
 let gameOver = () => {
-        
+
     // Remove html elements
     const quizEl = document.getElementById("quiz-div");
-    quizEl.parentNode.removeChild(quizEl);
+    quizEl.remove();        
+    
 
     // Add new html to the page
     const gameOverEl = document.getElementById("game-over");
@@ -410,7 +415,8 @@ let gameOver = () => {
         }
         localStorage.setItem("Personal Score", JSON.stringify(userSave));  
     })
+
 }
 
 round1();
-setInterval(updateCountdown, 1000)
+updateCountdown();

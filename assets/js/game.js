@@ -1,4 +1,4 @@
-// Question info stored into an object
+// Question data
 const questionInfo = [
     { question: "Commonly used data types DO NOT include:",
     answers: [
@@ -46,18 +46,30 @@ let time = startingSeconds * 60;
 // Coundown logic
 let updateCountdown = () => {
     countdownEl.innerHTML = `Time: ${time}`;
-    time--;
     if (time == 0 || time <= 0){
             clearInterval(timer);
             countdownEl.innerHTML = "GAME OVER";
             gameOver();
-    }
+    } 
+    time--;
 }
+
+// let penaltyCountdown = () => {
+//     let newTime = time - 10;
+//     if (newTime == 0 || newTime <= 0){
+//             clearInterval(timer);
+//             countdownEl.innerHTML = "GAME OVER";
+//             gameOver();
+//     } else {
+//         countdownEl.innerHTML = `Time: ${newTime}`;
+//         newTime--;
+//     }
+// }
 
 let timer = setInterval(updateCountdown, 1000);
 
+// Round 1
 let round1 = () => {
-    console.log("Round 1");
 
     // Variables for html
     let question = document.getElementById("question");
@@ -90,9 +102,13 @@ let round1 = () => {
     // Add event listeners to start answer verification
     answer1.addEventListener("click", e => {
         if(answer1Sol === false){
+            // if (time <= 10) {
+            //     clearInterval(timer);
+            //     gameOver();
+            // }
             feedback.innerHTML = "Wrong!";
-            // let newTime = time - 10;
-            // countdownEl.innerHTML = `${newTime}`;
+            // clearInterval(timer);
+            // penaltyCountdown();
             round2();
         }
     });
@@ -120,8 +136,8 @@ let round1 = () => {
     });
 }
 
+// Round 2
 let round2 = () => {
-    console.log("Round 2");
     
     // Variables for html
     let question = document.getElementById("question");
@@ -184,8 +200,8 @@ let round2 = () => {
     });
 }
 
+// Round 3
 let round3 =  () => {
-    console.log("Round 3");
 
     // Variables for html
     let question = document.getElementById("question");
@@ -247,9 +263,9 @@ let round3 =  () => {
         }
     });
 }
-
+ 
+// Round 4
 let round4 = () => {
-    console.log("Round 4");
 
     // Variables for html
     let question = document.getElementById("question");
@@ -313,8 +329,8 @@ let round4 = () => {
     });
 }
 
+// Round 5
 let round5 = () => {
-    console.log("Round 5");
 
     // Variables for html
     let question = document.getElementById("question");
@@ -381,9 +397,9 @@ let round5 = () => {
     });
 }
 
+// Game over
 let gameOver = () => {
 
-    // Remove html elements
     const quizEl = document.getElementById("quiz-div");
     quizEl.remove();        
     
@@ -394,6 +410,7 @@ let gameOver = () => {
     const p1El = document.getElementById("p1");
     const p2El = document.getElementById("p2");
     
+    // Diplay this data
     h2El.innerHTML = "GAME OVER";
     p1El.innerHTML = `Your final score is: ${time + 1}`;
     let userScore = `${time + 1}`
@@ -405,6 +422,7 @@ let gameOver = () => {
     const inputEl = document.createElement("input");
     inputDiv.appendChild(inputEl);
 
+    // Save button logic
     const btnDiv = document.getElementById("btn-div")
     const btnEl = document.createElement("button")
     btnDiv.appendChild(btnEl);
@@ -420,5 +438,6 @@ let gameOver = () => {
 
 }
 
+// Functions to initialize app
 round1();
 updateCountdown();

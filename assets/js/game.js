@@ -40,7 +40,7 @@ const questionInfo = [
 
 // Countdown variables
 const countdownEl = document.getElementById("countdown");
-const startingSeconds = .05;
+const startingSeconds = 1.25;
 let time = startingSeconds * 60;
  
 // Coundown logic

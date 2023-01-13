@@ -13,8 +13,8 @@ As a user looking for a way to practice interview questions, I would like an app
 
 ### Features
 
-1. Users can interact with the different buttons on the screen to progress through the quiz.
-2. At the end of a quiz, users can interact with a form to save their score and initials to local storage.
+* Users can interact with the different buttons on the screen to progress through the quiz.
+* At the end of a quiz, users can interact with a form to save their score and initials to local storage.
 
 ### Built With
 

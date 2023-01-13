@@ -1,6 +1,6 @@
 # Code Quiz
 
-## About the App
+## About this App
 
 ### Description
 
